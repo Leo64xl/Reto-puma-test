@@ -12,6 +12,7 @@ import AdvertisementRoute from "./routes/AdvertisementRoute.js";
 import ResultRoute from "./routes/ResultRoute.js";
 import RouteRoute from "./routes/RouteRoute.js";
 import fileUpload from "express-fileupload";
+import { PORT } from "./config/config.js";
 
 dotenv.config();
 
@@ -56,6 +57,6 @@ app.use(RouteRoute);
 
 //store.sync();
 
-app.listen(process.env.APP_PORT,() => {
-    console.log('Server running');
+app.listen(process.env.APP_PORT || PORT,() => {
+    console.log('Server running on Port: ' + (process.env.APP_PORT || PORT));
 });
